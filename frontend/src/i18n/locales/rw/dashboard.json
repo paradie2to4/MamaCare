@@ -1,0 +1,22 @@
+{
+  "greeting": {
+    "morning": "Mwaramutse, {{name}}",
+    "afternoon": "Mwiriwe, {{name}}",
+    "evening": "Muramuke, {{name}}"
+  },
+  "weekLabel": "Icyumweru cya {{week}} cy'inda",
+  "sections": {
+    "journey": "Urugendo rwawe rw'inda",
+    "nextAppointment": "Isuzuma rikurikira",
+    "noUpcomingAppointment": "Nta suzuma riteganyijwe ubu.",
+    "todaysReminders": "Ibyo kwibuka uyu munsi",
+    "noReminders": "Wagezeho byose kuri uyu munsi.",
+    "learnThisWeek": "Wige kuri iki cyumweru",
+    "careTeam": "Itsinda ryawe ry'ubuzima",
+    "careTeamPlaceholder": "Umujyanama wawe w'ubuzima n'ivuriro bizagaragara hano nimuze bihuzwa.",
+    "getHelp": "Ubufasha bw'ihutirwa"
+  },
+  "reminder": {
+    "dismiss": "Byarangiye"
+  }
+}

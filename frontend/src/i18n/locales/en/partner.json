@@ -1,0 +1,29 @@
+{
+  "title": "Supporting {{name}}",
+  "none": {
+    "title": "You're not connected to a mother yet",
+    "description": "Ask the mother you're supporting to invite you from her Profile page using this account's email address."
+  },
+  "pending": {
+    "title": "You have a pending invite",
+    "description": "{{name}} has invited you to connect on MamaCare Rwanda.",
+    "accept": "Accept invite"
+  },
+  "upcoming": {
+    "title": "Upcoming",
+    "empty": "No upcoming appointment scheduled yet."
+  },
+  "waysToHelp": {
+    "title": "Ways I can help",
+    "items": [
+      "Help with transport planning",
+      "Accompany her to care",
+      "Prepare delivery essentials",
+      "Learn about newborn care"
+    ]
+  },
+  "learn": {
+    "title": "Learn",
+    "cta": "How partners can support a healthy pregnancy"
+  }
+}

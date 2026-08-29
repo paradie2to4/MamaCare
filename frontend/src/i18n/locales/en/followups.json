@@ -1,0 +1,13 @@
+{
+  "title": "Follow-ups",
+  "subtitle": "Your community health worker may flag a follow-up to check in on something. This supports your care — it is not a diagnosis.",
+  "empty": "You have no follow-ups on file.",
+  "reason": "Reason",
+  "status": {
+    "OPEN": "Open",
+    "IN_PROGRESS": "In progress",
+    "RESOLVED": "Resolved",
+    "CLOSED": "Closed"
+  },
+  "dueDate": "Follow up by {{date}}"
+}

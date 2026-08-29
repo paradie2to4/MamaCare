@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm cream background, warm charcoal text — family-first, not clinical-white */
+    --background: 40 35% 97%;
+    --foreground: 20 15% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 15% 18%;
+
+    /* Warm coral primary — human, approachable, the "family" accent */
+    --primary: 16 78% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Deep teal secondary, used for headers / active nav state */
+    --secondary: 182 61% 22%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 18% 94%;
+    --muted-foreground: 25 12% 40%;
+
+    --accent: 16 70% 94%;
+    --accent-foreground: 182 61% 22%;
+
+    /* Muted sage — reserved for "completed/on track" status badges only, never a UI accent */
+    --success: 139 20% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 36 75% 48%;
+    --warning-foreground: 30 40% 15%;
+
+    /* Brick red rather than a harsh alert-red */
+    --destructive: 6 55% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 18% 87%;
+    --input: 30 18% 87%;
+    --ring: 16 78% 60%;
+
+    --radius: 0.875rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}

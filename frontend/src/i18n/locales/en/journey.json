@@ -1,0 +1,18 @@
+{
+  "title": "Pregnancy Journey",
+  "trimester": {
+    "first": "First trimester",
+    "second": "Second trimester",
+    "third": "Third trimester"
+  },
+  "youAreHere": "You are here",
+  "dueDate": "Estimated due date",
+  "noPregnancy": {
+    "title": "No pregnancy on file yet",
+    "description": "Add your pregnancy details to see your personalized journey.",
+    "cta": "Add pregnancy details"
+  },
+  "milestones": {
+    "title": "What to expect this trimester"
+  }
+}

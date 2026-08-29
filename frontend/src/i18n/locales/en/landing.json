@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "title": "Better maternal care, connected.",
+    "subtitle": "MamaCare Rwanda connects mothers, families, community health workers and healthcare teams to support healthier pregnancy and newborn care.",
+    "primaryCta": "Get Started",
+    "secondaryCta": "Learn More"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "steps": [
+      { "title": "Create your account", "description": "Sign up in your preferred language, English or Kinyarwanda." },
+      { "title": "Follow your journey", "description": "See your pregnancy week, upcoming appointments, and daily reminders." },
+      { "title": "Stay connected", "description": "Your community health worker and care team stay informed and reachable." }
+    ]
+  },
+  "audiences": {
+    "mothers": {
+      "title": "For mothers",
+      "description": "A clear picture of your pregnancy, your next steps, and trusted health information — in one place."
+    },
+    "families": {
+      "title": "For families",
+      "description": "Partners and family members can support with the things that matter, when the mother chooses to share."
+    },
+    "chw": {
+      "title": "For community health workers",
+      "description": "See who needs follow-up, at a glance, so no one falls through the cracks."
+    },
+    "officers": {
+      "title": "For healthcare teams",
+      "description": "Aggregated, privacy-conscious visibility into community-level maternal health trends."
+    }
+  },
+  "features": {
+    "title": "Features",
+    "items": [
+      "Bilingual — English and Kinyarwanda",
+      "Pregnancy journey tracking",
+      "Smart appointment reminders",
+      "Trusted health education",
+      "Follow-up support for health workers",
+      "Built with privacy in mind"
+    ]
+  },
+  "privacy": {
+    "title": "Privacy and safety",
+    "description": "Your health information is sensitive. MamaCare Rwanda uses role-based access so only the right people see the right information, and you control what is shared with a partner."
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "subtitle": "Join MamaCare Rwanda today — it's free.",
+    "button": "Get Started"
+  },
+  "disclaimer": "MamaCare Rwanda supports the work of community health workers and healthcare professionals. It does not diagnose conditions or replace professional medical care."
+}

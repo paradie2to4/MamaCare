@@ -1,0 +1,13 @@
+{
+  "title": "Gukurikirana",
+  "subtitle": "Umujyanama wawe w'ubuzima ashobora kugusaba kugukurikirana ku kintu runaka. Ibi bifasha ubuzima bwawe — ntabwo ari isuzuma ry'indwara.",
+  "empty": "Nta gukurikirana ufite.",
+  "reason": "Impamvu",
+  "status": {
+    "OPEN": "Birafunguye",
+    "IN_PROGRESS": "Birakomeza",
+    "RESOLVED": "Byakemutse",
+    "CLOSED": "Byafunzwe"
+  },
+  "dueDate": "Gukurikirana bigomba kurangira {{date}}"
+}

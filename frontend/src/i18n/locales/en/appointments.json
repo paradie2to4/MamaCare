@@ -1,0 +1,37 @@
+{
+  "title": "Appointments",
+  "subtitle": "Keep track of your upcoming and past visits.",
+  "new": "New appointment",
+  "empty": {
+    "title": "No appointments yet",
+    "description": "When you or your care team schedule a visit, it will appear here."
+  },
+  "status": {
+    "SCHEDULED": "Upcoming",
+    "COMPLETED": "Completed",
+    "MISSED": "Missed",
+    "CANCELLED": "Cancelled",
+    "RESCHEDULED": "Rescheduled"
+  },
+  "type": {
+    "ANC_VISIT": "ANC Check-up",
+    "ULTRASOUND": "Ultrasound",
+    "LAB_TEST": "Lab Test",
+    "VACCINATION": "Vaccination",
+    "POSTNATAL": "Postnatal Visit",
+    "OTHER": "Appointment"
+  },
+  "form": {
+    "type": "Appointment type",
+    "facility": "Facility",
+    "location": "Location (optional)",
+    "date": "Date and time",
+    "notes": "Notes (optional)",
+    "submit": "Schedule appointment"
+  },
+  "actions": {
+    "markCompleted": "Mark as completed",
+    "markMissed": "Mark as missed",
+    "cancel": "Cancel appointment"
+  }
+}

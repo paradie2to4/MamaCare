@@ -1,0 +1,36 @@
+{
+  "title": "Welcome to MamaCare Rwanda",
+  "steps": {
+    "language": {
+      "label": "Language",
+      "title": "Choose your language",
+      "description": "You can change this at any time."
+    },
+    "pregnancy": {
+      "label": "Your pregnancy",
+      "title": "Tell us about your pregnancy",
+      "description": "This helps us show you the right information for your stage.",
+      "lmpDate": "First day of your last menstrual period",
+      "lmpHint": "If you're not sure, an estimate is okay — your health worker can confirm this.",
+      "eddDate": "Estimated due date (optional)",
+      "eddHint": "Leave this blank and we'll estimate it for you."
+    },
+    "care": {
+      "label": "Your care",
+      "title": "Your care team",
+      "description": "You can link your health facility and community health worker later from your profile."
+    },
+    "notifications": {
+      "label": "Notifications",
+      "title": "Reminder preferences",
+      "description": "Choose how you'd like to receive reminders. You can change this later.",
+      "inApp": "In-app notifications"
+    },
+    "privacy": {
+      "label": "Privacy",
+      "title": "Your privacy",
+      "description": "Your health information is private. You decide what, if anything, is shared with a partner or family member."
+    }
+  },
+  "finish": "Finish setup"
+}

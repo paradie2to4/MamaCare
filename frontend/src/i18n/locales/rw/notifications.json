@@ -1,0 +1,12 @@
+{
+  "title": "Amatangazo",
+  "markAllRead": "Shyira byose ko byasomwe",
+  "empty": "Wagezeho byose — nta matangazo arahari.",
+  "category": {
+    "APPOINTMENT": "Isuzuma",
+    "REMINDER": "Kwibutswa",
+    "FOLLOW_UP": "Gukurikirana",
+    "EDUCATION": "Kwiga",
+    "SYSTEM": "Sisitemu"
+  }
+}

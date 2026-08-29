@@ -1,0 +1,37 @@
+{
+  "title": "Gahunda z'Isuzuma",
+  "subtitle": "Kurikirana gahunda zawe ziteganyijwe n'izahise.",
+  "new": "Gahunda nshya",
+  "empty": {
+    "title": "Nta gahunda irahari",
+    "description": "Igihe wowe cyangwa itsinda ryawe ry'ubuzima muteganya isuzuma, rizagaragara hano."
+  },
+  "status": {
+    "SCHEDULED": "Riteganyijwe",
+    "COMPLETED": "Ryarangiye",
+    "MISSED": "Ryatawe",
+    "CANCELLED": "Ryahagaritswe",
+    "RESCHEDULED": "Ryimuriwe"
+  },
+  "type": {
+    "ANC_VISIT": "Isuzuma ry'inda",
+    "ULTRASOUND": "Ikizamini cya Ultrasound",
+    "LAB_TEST": "Ikizamini cya Laboratwari",
+    "VACCINATION": "Gukingirwa",
+    "POSTNATAL": "Isuzuma rya nyuma yo kubyara",
+    "OTHER": "Gahunda"
+  },
+  "form": {
+    "type": "Ubwoko bw'isuzuma",
+    "facility": "Ivuriro",
+    "location": "Aho riherereye (si ngombwa)",
+    "date": "Itariki n'isaha",
+    "notes": "Andi makuru (si ngombwa)",
+    "submit": "Tegura isuzuma"
+  },
+  "actions": {
+    "markCompleted": "Shyira ko ryarangiye",
+    "markMissed": "Shyira ko ryatawe",
+    "cancel": "Hagarika isuzuma"
+  }
+}

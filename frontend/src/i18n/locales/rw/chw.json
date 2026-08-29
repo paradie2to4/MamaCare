@@ -1,0 +1,43 @@
+{
+  "dashboard": {
+    "title": "Umuryango Wanjye",
+    "totalAssigned": "Ababyeyi batwite",
+    "onTrack": "Bameze neza",
+    "followUpNeeded": "Bakeneye gukurikiranwa",
+    "priority": "Gukurikiranwa ku ihutirwa"
+  },
+  "mothers": {
+    "title": "Ababyeyi",
+    "empty": "Nta mubyeyi uhawe kugeza ubu.",
+    "nextAppointment": "Isuzuma rikurikira",
+    "noUpcomingAppointment": "Nta suzuma riteganyijwe",
+    "viewDetails": "Reba amakuru arambuye"
+  },
+  "followUps": {
+    "title": "Gukurikirana",
+    "new": "Gukurikirana gushya",
+    "empty": "Nta gukurikirana kurahari.",
+    "form": {
+      "mother": "Umubyeyi",
+      "reason": "Impamvu",
+      "priority": "Urwego rw'ihutirwa",
+      "dueDate": "Itariki ntarengwa (si ngombwa)",
+      "notes": "Andi makuru (si ngombwa)",
+      "submit": "Kora gukurikirana"
+    },
+    "priority": {
+      "LOW": "Byoroheje",
+      "MEDIUM": "Hagati",
+      "HIGH": "Byihutirwa",
+      "URGENT": "Byihutirwa cyane"
+    },
+    "status": {
+      "OPEN": "Birafunguye",
+      "IN_PROGRESS": "Birakomeza",
+      "RESOLVED": "Byakemutse",
+      "CLOSED": "Byafunzwe"
+    },
+    "complete": "Shyira ko byarangiye",
+    "disclaimer": "Iki ni igikoresho cyo gufasha gukurikirana, ntabwo ari uburyo bwo gusuzuma indwara."
+  }
+}

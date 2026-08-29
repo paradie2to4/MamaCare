@@ -1,0 +1,29 @@
+{
+  "title": "Gufasha {{name}}",
+  "none": {
+    "title": "Ntabwo urahuza n'umubyeyi",
+    "description": "Saba umubyeyi umufasha kukwifuriza uhereye ku ipaji ye y'Umwirondoro ukoresheje imeyili ya konti yawe."
+  },
+  "pending": {
+    "title": "Ufite ubutumire butegereje",
+    "description": "{{name}} yakwifurije guhuza kuri MamaCare Rwanda.",
+    "accept": "Emera ubutumire"
+  },
+  "upcoming": {
+    "title": "Riteganyijwe",
+    "empty": "Nta suzuma riteganyijwe ubu."
+  },
+  "waysToHelp": {
+    "title": "Uburyo nshobora gufasha",
+    "items": [
+      "Gufasha gutegura ubwikorezi",
+      "Kumuherekeza mu isuzuma",
+      "Gutegura ibikoresho byo kubyara",
+      "Kwiga ku kwita ku mwana uvuka"
+    ]
+  },
+  "learn": {
+    "title": "Kwiga",
+    "cta": "Uko abafasha bashobora gufasha inda kubana neza"
+  }
+}

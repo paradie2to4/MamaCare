@@ -1,0 +1,34 @@
+{
+  "title": "Umwirondoro",
+  "sections": {
+    "personal": "Amakuru bwite",
+    "location": "Aho utuye",
+    "emergencyContact": "Uwo guhamagara mu bihe by'ihutirwa",
+    "language": "Ururimi n'amatangazo",
+    "account": "Konti",
+    "partner": "Umufasha"
+  },
+  "fields": {
+    "firstName": "Izina ry'idini",
+    "lastName": "Izina ry'umuryango",
+    "phone": "Numero ya telefone",
+    "email": "Aderesi imeyili",
+    "district": "Akarere",
+    "sector": "Umurenge",
+    "cell": "Akagari",
+    "village": "Umudugudu",
+    "emergencyContactName": "Izina ry'uwo guhamagara",
+    "emergencyContactPhone": "Telefone y'uwo guhamagara"
+  },
+  "saveSuccess": "Umwirondoro wawe wavuguruwe.",
+  "partnerCard": {
+    "emailLabel": "Imeyili y'umufasha",
+    "invite": "Ohereza ubutumire",
+    "pending": "Ubutumire bwoherejwe kuri {{email}}. Turi gutegereza ko yemera.",
+    "active": "{{name}} ahujwe nk'umufasha wawe.",
+    "revoke": "Kuraho umufasha"
+  },
+  "comingSoon": {
+    "chwLinking": "Guhuza n'umujyanama w'ubuzima biraza vuba."
+  }
+}

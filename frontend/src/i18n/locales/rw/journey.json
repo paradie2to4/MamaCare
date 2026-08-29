@@ -1,0 +1,18 @@
+{
+  "title": "Urugendo rw'Inda",
+  "trimester": {
+    "first": "Igihembwe cya mbere",
+    "second": "Igihembwe cya kabiri",
+    "third": "Igihembwe cya gatatu"
+  },
+  "youAreHere": "Uri hano",
+  "dueDate": "Itariki iteganyijwe yo kubyara",
+  "noPregnancy": {
+    "title": "Nta makuru y'inda arahari",
+    "description": "Ongeraho amakuru y'inda yawe kugira ngo ubone urugendo rwawe bwite.",
+    "cta": "Ongeraho amakuru y'inda"
+  },
+  "milestones": {
+    "title": "Icyo witega muri iki gihembwe"
+  }
+}

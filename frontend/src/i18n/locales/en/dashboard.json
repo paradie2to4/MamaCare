@@ -1,0 +1,22 @@
+{
+  "greeting": {
+    "morning": "Good morning, {{name}}",
+    "afternoon": "Good afternoon, {{name}}",
+    "evening": "Good evening, {{name}}"
+  },
+  "weekLabel": "Week {{week}} of pregnancy",
+  "sections": {
+    "journey": "Your pregnancy journey",
+    "nextAppointment": "Next appointment",
+    "noUpcomingAppointment": "No upcoming appointment scheduled yet.",
+    "todaysReminders": "Today's reminders",
+    "noReminders": "You're all caught up for today.",
+    "learnThisWeek": "Learn this week",
+    "careTeam": "Your care team",
+    "careTeamPlaceholder": "Your community health worker and facility will appear here once linked.",
+    "getHelp": "Emergency / Get help"
+  },
+  "reminder": {
+    "dismiss": "Mark as done"
+  }
+}

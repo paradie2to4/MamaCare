@@ -1,0 +1,46 @@
+{
+  "appName": "MamaCare Rwanda",
+  "nav": {
+    "home": "Home",
+    "journey": "Journey",
+    "learn": "Learn",
+    "appointments": "Appointments",
+    "profile": "Profile",
+    "partner": "Partner",
+    "chw": "Community Health",
+    "officer": "Health Officer",
+    "assistant": "AI Assistant",
+    "dashboard": "Dashboard",
+    "mothers": "Mothers",
+    "followups": "Follow-ups",
+    "notifications": "Notifications"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "tryAgain": "Try again",
+    "markAsRead": "Mark as read",
+    "logout": "Log out"
+  },
+  "status": {
+    "loading": "Loading...",
+    "somethingWentWrong": "Something went wrong. Please try again.",
+    "comingSoon": "Coming soon"
+  },
+  "comingSoon": {
+    "title": "Coming soon",
+    "description": "This part of MamaCare Rwanda is on its way. We're building it carefully so it's ready to support you well."
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "rw": "Kinyarwanda"
+  },
+  "footer": {
+    "disclaimer": "MamaCare Rwanda supports your care team — it does not replace professional medical advice."
+  }
+}

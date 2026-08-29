@@ -1,0 +1,12 @@
+{
+  "title": "Notifications",
+  "markAllRead": "Mark all as read",
+  "empty": "You're all caught up — no notifications yet.",
+  "category": {
+    "APPOINTMENT": "Appointment",
+    "REMINDER": "Reminder",
+    "FOLLOW_UP": "Follow-up",
+    "EDUCATION": "Education",
+    "SYSTEM": "System"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "title": "Ubuzima bw'ababyeyi bwiza kurushaho, buhujwe.",
+    "subtitle": "MamaCare Rwanda ihuza ababyeyi, imiryango, abajyanama b'ubuzima n'amatsinda y'ubuvuzi kugira ngo bafashe kubaho neza mu gihe cy'inda no kwita ku bana bavutse.",
+    "primaryCta": "Tangira",
+    "secondaryCta": "Menya byinshi"
+  },
+  "howItWorks": {
+    "title": "Uko bikora",
+    "steps": [
+      { "title": "Fungura konti yawe", "description": "Iyandikishe mu rurimi ukunda, Icyongereza cyangwa Ikinyarwanda." },
+      { "title": "Kurikirana urugendo rwawe", "description": "Reba icyumweru cy'inda yawe, gahunda ziteganyijwe, n'ibyo kwibutswa buri munsi." },
+      { "title": "Guma uhujwe", "description": "Umujyanama wawe w'ubuzima n'itsinda ryawe bagumana amakuru kandi bashobora kugera kuri wowe." }
+    ]
+  },
+  "audiences": {
+    "mothers": {
+      "title": "Ku babyeyi",
+      "description": "Amakuru asobanutse ku nda yawe, ibikurikira, n'amakuru y'ubuzima yizewe — byose ahantu hamwe."
+    },
+    "families": {
+      "title": "Ku miryango",
+      "description": "Abafasha n'abo mu muryango bashobora gufasha mu bintu by'ingenzi, igihe umubyeyi yemeye gusangira amakuru."
+    },
+    "chw": {
+      "title": "Ku bajyanama b'ubuzima",
+      "description": "Reba mu buryo bworoshye abakeneye gukurikiranwa, kugira ngo nta wusigara inyuma."
+    },
+    "officers": {
+      "title": "Ku matsinda y'ubuvuzi",
+      "description": "Amakuru rusange, arengera ibanga, ku migendekere y'ubuzima bw'ababyeyi mu baturage."
+    }
+  },
+  "features": {
+    "title": "Ibiranga",
+    "items": [
+      "Indimi ebyiri — Icyongereza n'Ikinyarwanda",
+      "Gukurikirana urugendo rw'inda",
+      "Kwibutswa ku buryo bwiza ku isuzuma",
+      "Amakuru y'ubuzima yizewe",
+      "Ubufasha bwo gukurikirana ku bajyanama b'ubuzima",
+      "Yubatswe yita ku banga"
+    ]
+  },
+  "privacy": {
+    "title": "Ibanga n'umutekano",
+    "description": "Amakuru yawe y'ubuzima ni ibanga rikomeye. MamaCare Rwanda ikoresha uburenganzira bushingiye ku ruhare kugira ngo abantu babona gusa amakuru abakwiye, kandi ni wowe ugena ibyo usangira n'umufasha."
+  },
+  "cta": {
+    "title": "Witeguye gutangira?",
+    "subtitle": "Iyandikishe kuri MamaCare Rwanda uyu munsi — ni ku buntu.",
+    "button": "Tangira"
+  },
+  "disclaimer": "MamaCare Rwanda ifasha akazi k'abajyanama b'ubuzima n'abaganga. Ntisuzuma indwara cyangwa ngo isimbure ubuvuzi bw'abanyamwuga."
+}

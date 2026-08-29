@@ -1,0 +1,46 @@
+{
+  "appName": "MamaCare Rwanda",
+  "nav": {
+    "home": "Ahabanza",
+    "journey": "Urugendo",
+    "learn": "Kwiga",
+    "appointments": "Gahunda z'isuzuma",
+    "profile": "Umwirondoro",
+    "partner": "Umufasha",
+    "chw": "Umujyanama w'Ubuzima",
+    "officer": "Umuyobozi w'Ubuzima",
+    "assistant": "Umufasha wa AI",
+    "dashboard": "Ahabanza",
+    "mothers": "Ababyeyi",
+    "followups": "Gukurikirana",
+    "notifications": "Amatangazo"
+  },
+  "actions": {
+    "save": "Bika",
+    "cancel": "Hagarika",
+    "continue": "Komeza",
+    "back": "Subira inyuma",
+    "getStarted": "Tangira",
+    "learnMore": "Menya byinshi",
+    "tryAgain": "Ongera ugerageze",
+    "markAsRead": "Shyira ko byasomwe",
+    "logout": "Sohoka"
+  },
+  "status": {
+    "loading": "Turimo gutegura...",
+    "somethingWentWrong": "Habaye ikibazo. Ongera ugerageze.",
+    "comingSoon": "Biraza vuba"
+  },
+  "comingSoon": {
+    "title": "Biraza vuba",
+    "description": "Iki gice cya MamaCare Rwanda kiracyategurwa. Turacyakikorera neza kugira ngo kizabashe kubafasha neza."
+  },
+  "language": {
+    "label": "Ururimi",
+    "en": "Icyongereza",
+    "rw": "Ikinyarwanda"
+  },
+  "footer": {
+    "disclaimer": "MamaCare Rwanda ifasha itsinda ryawe ry'ubuzima — ntisimbura inama z'abaganga."
+  }
+}

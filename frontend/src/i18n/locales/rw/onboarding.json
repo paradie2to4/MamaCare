@@ -1,0 +1,36 @@
+{
+  "title": "Murakaza neza kuri MamaCare Rwanda",
+  "steps": {
+    "language": {
+      "label": "Ururimi",
+      "title": "Hitamo ururimi rwawe",
+      "description": "Ushobora kubihindura igihe cyose ubishatse."
+    },
+    "pregnancy": {
+      "label": "Inda yawe",
+      "title": "Tubwire ibijyanye n'inda yawe",
+      "description": "Ibi bidufasha kukwereka amakuru akwiye icyiciro utugarukamo.",
+      "lmpDate": "Umunsi wa mbere w'imihango yawe ya nyuma",
+      "lmpHint": "Niba utaramenya neza, kwibwira ntabwo aribyo bibi — umujyanama w'ubuzima azabishimangira.",
+      "eddDate": "Itariki iteganyijwe yo kubyara (si ngombwa)",
+      "eddHint": "Ubaze aha tuzayibara wowe."
+    },
+    "care": {
+      "label": "Ubuzima bwawe",
+      "title": "Itsinda ryawe ry'ubuzima",
+      "description": "Ushobora guhuza ivuriro ryawe n'umujyanama w'ubuzima nyuma uhereye ku mwirondoro wawe."
+    },
+    "notifications": {
+      "label": "Amatangazo",
+      "title": "Uburyo bwo kwibutswa",
+      "description": "Hitamo uburyo ushaka kwakira amatangazo. Ushobora kubihindura nyuma.",
+      "inApp": "Amatangazo muri porogaramu"
+    },
+    "privacy": {
+      "label": "Ibanga",
+      "title": "Ibanga ryawe",
+      "description": "Amakuru yawe y'ubuzima ni ibanga. Ni wowe uhitamo icyo, niba hari, wemera gusangira n'umufasha cyangwa umuntu wo mu muryango."
+    }
+  },
+  "finish": "Rangiza igenamiterere"
+}

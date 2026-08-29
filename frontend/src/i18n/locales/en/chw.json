@@ -1,0 +1,43 @@
+{
+  "dashboard": {
+    "title": "My Community",
+    "totalAssigned": "Pregnant mothers",
+    "onTrack": "On track",
+    "followUpNeeded": "Follow-up needed",
+    "priority": "Priority follow-up"
+  },
+  "mothers": {
+    "title": "Mothers",
+    "empty": "No mothers are currently assigned to you.",
+    "nextAppointment": "Next appointment",
+    "noUpcomingAppointment": "No upcoming appointment",
+    "viewDetails": "View details"
+  },
+  "followUps": {
+    "title": "Follow-ups",
+    "new": "New follow-up",
+    "empty": "No follow-ups yet.",
+    "form": {
+      "mother": "Mother",
+      "reason": "Reason",
+      "priority": "Priority",
+      "dueDate": "Due date (optional)",
+      "notes": "Notes (optional)",
+      "submit": "Create follow-up"
+    },
+    "priority": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High",
+      "URGENT": "Urgent"
+    },
+    "status": {
+      "OPEN": "Open",
+      "IN_PROGRESS": "In progress",
+      "RESOLVED": "Resolved",
+      "CLOSED": "Closed"
+    },
+    "complete": "Mark as completed",
+    "disclaimer": "This is a follow-up support tool, not a medical diagnosis system."
+  }
+}

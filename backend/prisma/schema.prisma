@@ -1,0 +1,327 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+enum Role {
+  MOTHER
+  PARTNER
+  CHW
+  HEALTH_OFFICER
+  ADMIN
+}
+
+enum PregnancyStatus {
+  ACTIVE
+  COMPLETED
+  MISCARRIED
+  TERMINATED
+}
+
+enum AppointmentType {
+  ANC_VISIT
+  ULTRASOUND
+  LAB_TEST
+  VACCINATION
+  POSTNATAL
+  OTHER
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  COMPLETED
+  MISSED
+  CANCELLED
+  RESCHEDULED
+}
+
+enum ReminderType {
+  APPOINTMENT
+  MEDICATION
+  DAILY_TIP
+  CUSTOM
+}
+
+enum ReminderStatus {
+  PENDING
+  SENT
+  DISMISSED
+  FAILED
+}
+
+enum ReminderChannel {
+  IN_APP
+  EMAIL
+  SMS
+}
+
+enum EducationCategory {
+  NUTRITION
+  ANTENATAL_CARE
+  EXERCISE_WELLBEING
+  BIRTH_PREPARATION
+  DANGER_SIGNS
+  MENTAL_WELLBEING
+  NEWBORN_CARE
+  BREASTFEEDING
+  POSTNATAL_CARE
+  IMMUNIZATION
+  HYGIENE
+  FAMILY_SUPPORT
+}
+
+enum NotificationType {
+  APPOINTMENT
+  REMINDER
+  FOLLOW_UP
+  EDUCATION
+  SYSTEM
+}
+
+enum FollowUpPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum FollowUpStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum PartnerLinkStatus {
+  PENDING
+  ACTIVE
+  REVOKED
+}
+
+// ---------------------------------------------------------------------------
+// Phase 1 models — fully exercised via API
+// ---------------------------------------------------------------------------
+
+model User {
+  id                String   @id @default(uuid())
+  firstName         String
+  lastName          String
+  email             String   @unique
+  phone             String?
+  passwordHash      String
+  role              Role     @default(MOTHER)
+  preferredLanguage String   @default("en")
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  motherProfile       MotherProfile?
+  refreshTokens       RefreshToken[]
+  reminders           Reminder[]
+  notifications       Notification[]
+  auditLogs           AuditLog[]
+  createdAppointments Appointment[]    @relation("AppointmentCreatedBy")
+  assignedFollowUps   HealthFollowUp[] @relation("FollowUpAssignedCHW")
+  partnerLinks        PartnerLink[]    @relation("PartnerLinkPartner")
+  assignedMothers     MotherProfile[]  @relation("MotherAssignedCHW")
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String
+  userAgent String?
+  ipAddress String?
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model MotherProfile {
+  id                    String    @id @default(uuid())
+  userId                String    @unique
+  assignedCHWId         String?
+  dateOfBirth           DateTime?
+  district              String?
+  sector                String?
+  cell                  String?
+  village               String?
+  emergencyContactName  String?
+  emergencyContactPhone String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignedCHW  User?            @relation("MotherAssignedCHW", fields: [assignedCHWId], references: [id])
+  pregnancies  Pregnancy[]
+  appointments Appointment[]
+  followUps    HealthFollowUp[]
+  partnerLinks PartnerLink[]
+
+  @@index([assignedCHWId])
+  @@map("mother_profiles")
+}
+
+model Pregnancy {
+  id              String          @id @default(uuid())
+  motherProfileId String
+  status          PregnancyStatus @default(ACTIVE)
+  lmpDate         DateTime
+  eddDate         DateTime
+  notes           String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  motherProfile MotherProfile @relation(fields: [motherProfileId], references: [id], onDelete: Cascade)
+  appointments  Appointment[]
+
+  @@index([motherProfileId])
+  @@map("pregnancies")
+}
+
+model Appointment {
+  id              String            @id @default(uuid())
+  motherProfileId String
+  pregnancyId     String?
+  createdByUserId String
+  type            AppointmentType
+  status          AppointmentStatus @default(SCHEDULED)
+  scheduledAt     DateTime
+  facilityName    String
+  location        String?
+  notes           String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  motherProfile MotherProfile @relation(fields: [motherProfileId], references: [id], onDelete: Cascade)
+  pregnancy     Pregnancy?    @relation(fields: [pregnancyId], references: [id], onDelete: SetNull)
+  createdBy     User          @relation("AppointmentCreatedBy", fields: [createdByUserId], references: [id])
+  reminders     Reminder[]
+
+  @@index([motherProfileId])
+  @@map("appointments")
+}
+
+model Reminder {
+  id            String          @id @default(uuid())
+  userId        String
+  appointmentId String?
+  type          ReminderType
+  title         String
+  message       String
+  scheduledFor  DateTime
+  status        ReminderStatus  @default(PENDING)
+  channel       ReminderChannel @default(IN_APP)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointment Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@map("reminders")
+}
+
+model EducationArticle {
+  id                 String            @id @default(uuid())
+  slug               String            @unique
+  category           EducationCategory
+  titleEnglish       String
+  titleKinyarwanda   String
+  summaryEnglish     String
+  summaryKinyarwanda String
+  contentEnglish     String
+  contentKinyarwanda String
+  pregnancyStage     String?
+  readTimeMinutes    Int               @default(3)
+  isPublished        Boolean           @default(true)
+  reviewedBy         String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@map("education_articles")
+}
+
+// ---------------------------------------------------------------------------
+// Schema present for later phases (no Phase 1 endpoints yet) — kept here so
+// migrations don't need to be redone when Phase 2-4 land. See ARCHITECTURE.md.
+// ---------------------------------------------------------------------------
+
+model Notification {
+  id        String           @id @default(uuid())
+  userId    String
+  type      NotificationType
+  title     String
+  message   String
+  read      Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("notifications")
+}
+
+model HealthFollowUp {
+  id              String           @id @default(uuid())
+  motherProfileId String
+  assignedCHWId   String?
+  priority        FollowUpPriority
+  reason          String
+  status          FollowUpStatus   @default(OPEN)
+  dueDate         DateTime?
+  notes           String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  motherProfile MotherProfile @relation(fields: [motherProfileId], references: [id], onDelete: Cascade)
+  assignedCHW   User?         @relation("FollowUpAssignedCHW", fields: [assignedCHWId], references: [id])
+
+  @@index([motherProfileId])
+  @@map("health_follow_ups")
+}
+
+model PartnerLink {
+  id              String            @id @default(uuid())
+  partnerUserId   String
+  motherProfileId String
+  status          PartnerLinkStatus @default(PENDING)
+  invitedAt       DateTime          @default(now())
+  acceptedAt      DateTime?
+
+  partner       User          @relation("PartnerLinkPartner", fields: [partnerUserId], references: [id], onDelete: Cascade)
+  motherProfile MotherProfile @relation(fields: [motherProfileId], references: [id], onDelete: Cascade)
+
+  @@index([motherProfileId])
+  @@map("partner_links")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  action     String
+  entityType String
+  entityId   String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@map("audit_logs")
+}

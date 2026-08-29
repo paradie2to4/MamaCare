@@ -1,0 +1,24 @@
+{
+  "title": "Kwiga",
+  "subtitle": "Amakuru yizewe kuri buri cyiciro cy'urugendo rwawe.",
+  "categories": {
+    "NUTRITION": "Imirire",
+    "ANTENATAL_CARE": "Kwita ku nda",
+    "EXERCISE_WELLBEING": "Imyitozo n'ubuzima bwiza",
+    "BIRTH_PREPARATION": "Kwitegura kubyara",
+    "DANGER_SIGNS": "Ibimenyetso by'akaga",
+    "MENTAL_WELLBEING": "Ubuzima bwo mu mutwe",
+    "NEWBORN_CARE": "Kwita ku mwana uvuka",
+    "BREASTFEEDING": "Konsa",
+    "POSTNATAL_CARE": "Kwita nyuma yo kubyara",
+    "IMMUNIZATION": "Gukingira umwana",
+    "HYGIENE": "Isuku",
+    "FAMILY_SUPPORT": "Ubufasha bw'umuryango"
+  },
+  "allCategories": "Ingingo zose",
+  "readTime": "Isomwa mu minota {{minutes}}",
+  "reviewed": "Yasuzumwe na {{reviewer}}",
+  "updated": "Yavuguruwe {{date}}",
+  "empty": "Nta ngingo iraboneka kuri iyi ngingo.",
+  "backToLearn": "Subira ku Kwiga"
+}

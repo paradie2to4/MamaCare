@@ -1,0 +1,34 @@
+{
+  "title": "Profile",
+  "sections": {
+    "personal": "Personal information",
+    "location": "Location",
+    "emergencyContact": "Emergency contact",
+    "language": "Language & notifications",
+    "account": "Account",
+    "partner": "Partner"
+  },
+  "fields": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone number",
+    "email": "Email address",
+    "district": "District",
+    "sector": "Sector",
+    "cell": "Cell",
+    "village": "Village",
+    "emergencyContactName": "Contact name",
+    "emergencyContactPhone": "Contact phone"
+  },
+  "saveSuccess": "Your profile has been updated.",
+  "partnerCard": {
+    "emailLabel": "Partner's email address",
+    "invite": "Send invite",
+    "pending": "Invite sent to {{email}}. Waiting for them to accept.",
+    "active": "{{name}} is connected as your partner.",
+    "revoke": "Remove partner"
+  },
+  "comingSoon": {
+    "chwLinking": "Linking your community health worker is coming soon."
+  }
+}

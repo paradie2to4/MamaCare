@@ -1,0 +1,24 @@
+{
+  "title": "Learn",
+  "subtitle": "Trusted information for every stage of your journey.",
+  "categories": {
+    "NUTRITION": "Nutrition",
+    "ANTENATAL_CARE": "Antenatal Care",
+    "EXERCISE_WELLBEING": "Exercise & Wellbeing",
+    "BIRTH_PREPARATION": "Birth Preparation",
+    "DANGER_SIGNS": "Warning Signs",
+    "MENTAL_WELLBEING": "Mental Wellbeing",
+    "NEWBORN_CARE": "Newborn Care",
+    "BREASTFEEDING": "Breastfeeding",
+    "POSTNATAL_CARE": "Postnatal Care",
+    "IMMUNIZATION": "Infant Vaccination",
+    "HYGIENE": "Hygiene",
+    "FAMILY_SUPPORT": "Family Support"
+  },
+  "allCategories": "All topics",
+  "readTime": "{{minutes}} min read",
+  "reviewed": "Reviewed by {{reviewer}}",
+  "updated": "Updated {{date}}",
+  "empty": "No articles found for this topic yet.",
+  "backToLearn": "Back to Learn"
+}
