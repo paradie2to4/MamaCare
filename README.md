@@ -197,12 +197,41 @@ when the assistant module is added.
 
 ## Deployment
 
-- **Frontend** → Vercel (or any static host serving the Vite build output / the provided
-  Nginx-based Docker image).
-- **Backend** → Render or another container host, using `backend/Dockerfile`
-  (`prisma migrate deploy` runs automatically on container start).
-- **Database** → managed PostgreSQL.
-- **RabbitMQ** → CloudAMQP.
+**Database (done)**: migrated and seeded on [Neon](https://neon.tech) Postgres.
+`backend/prisma/schema.prisma` splits `url` (pooled, `DATABASE_URL`) from `directUrl`
+(unpooled, `DIRECT_DATABASE_URL`) per Neon's documented Prisma pattern — migrations need the
+direct connection, the running app uses the pooled one.
 
-None of the above have been provisioned or deployed in this session — the Dockerfiles and
-compose file are deliverables ready for that step.
+**Backend (in progress)**: targeting AWS App Runner, source-connected to this GitHub repo
+(`backend/apprunner.yaml` configures the build/run commands — no Docker needed for this path).
+Currently blocked on AWS account activation (`SubscriptionRequiredException` on a brand-new
+account, most commonly a billing/payment-method verification step in the AWS Console) —
+resume with the AWS CLI once that clears.
+
+**Frontend**: two options, both using the same build —
+1. **Vercel with mock data** (fastest path to a live demo while the backend isn't deployed
+   yet): set `VITE_ENABLE_MOCKS=true` as a Vercel environment variable. The entire app then
+   runs against realistic in-browser mock data (via [MSW](https://mswjs.io)) instead of a
+   real API — see [Mock/demo mode](#mockdemo-mode) below. `frontend/vercel.json` handles the
+   SPA routing fallback Vercel needs for React Router deep links.
+2. **AWS S3 + CloudFront** with `VITE_ENABLE_MOCKS` unset/false and `VITE_API_URL` pointing
+   at the real App Runner URL, once the backend is live.
+- **RabbitMQ** → not deployed yet; Amazon MQ or CloudAMQP once the backend flows need to be
+  demoed live (the app runs fine without it either way — see [RabbitMQ](#rabbitmq) above).
+
+## Mock/demo mode
+
+`frontend/src/mocks/` is a full [MSW](https://mswjs.io) browser-mode mock of every endpoint
+the app calls (`handlers.ts`), backed by an in-memory store (`store.ts`) seeded with the same
+fictional accounts as `backend/prisma/seed.ts` (`fixtures.ts`). Set `VITE_ENABLE_MOCKS=true`
+(see `frontend/.env.example`) and `main.tsx` starts the mock worker before rendering — no
+backend, no network calls, nothing to deploy except the static frontend build itself.
+
+- Login as `mother@example.com`, `partner@example.com`, or `chw@example.com` (password
+  `Password123!` for all) to see each role's dashboard.
+- State (new appointments, dismissed reminders, accepted invites, etc.) persists only for the
+  current tab session and resets on reload — expected for a mock, not a bug.
+- A "Demo mode" banner (`components/common/DemoModeBanner.tsx`) renders automatically
+  whenever this flag is on, so it's never ambiguous whether a deployment is live or mocked.
+- This mode is additive: the exact same build works against a real backend by leaving
+  `VITE_ENABLE_MOCKS` unset and setting `VITE_API_URL` instead — nothing else changes.
