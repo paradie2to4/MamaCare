@@ -13,13 +13,13 @@ This repository currently implements **Phases 1 and 2** of a four-phase roadmap.
 |---|---|---|
 | 1 | Auth & RBAC, Mother dashboard, Pregnancy journey, Appointments, Reminders, Education, EN/RW i18n | **Done** — built and verified (see [Testing](#testing)) |
 | 2 | Partner experience, CHW dashboard, Follow-up system, Notifications, RabbitMQ | **Done** — built and verified (see [Testing](#testing)) |
-| 3 | Health Officer dashboard, Analytics, AI assistant | Not started |
+| 3 | Health Officer dashboard, Analytics, AI assistant | AI assistant **done** (English; Kinyarwanda pending — see [Testing](#testing)); Health Officer dashboard & Analytics not started |
 | 4 | Newborn mode, Offline support, Deployment hardening | Not started |
 
-Nav entries for Health Officer / AI Assistant exist in the app shell as clearly labeled
-"Coming soon" pages — no fake data behind them. Partner and CHW are real, working roles as
-of Phase 2 — the demo accounts below (`partner@example.com`, `chw@example.com`) have full
-dashboards.
+The Health Officer nav entry is still a clearly labeled "Coming soon" page — no fake data
+behind it. AI Assistant is a real, working mother-only feature as of this change. Partner
+and CHW are real, working roles as of Phase 2 — the demo accounts below
+(`partner@example.com`, `chw@example.com`) have full dashboards.
 
 ## Tech stack
 
@@ -132,7 +132,8 @@ docker compose up --build
 | `JWT_REFRESH_SECRET`, `JWT_REFRESH_EXPIRES_IN` | Refresh token TTL (default 30d) — note the refresh token itself is a random opaque value hashed at rest, not a JWT, so this secret is reserved for consistency but not currently used to sign it |
 | `COOKIE_SECURE` | Set `true` behind HTTPS in production |
 | `RABBITMQ_URL` | Consumed since Phase 2 — if unset, the API still starts fine and just logs that the event consumer is disabled |
-| `AI_API_KEY` | Reserved for Phase 3 — not consumed yet |
+| `AI_API_KEY` | Anthropic API key for the AI assistant. If unset, the assistant falls back to a deterministic knowledge-base reply instead of calling the LLM |
+| `AI_MODEL` | Anthropic model id, defaults to `claude-sonnet-5` if unset |
 
 **`frontend/.env`**:
 
@@ -192,8 +193,14 @@ the broker client mocked, not a live connection).
 
 ## AI configuration
 
-Not built yet (planned for Phase 3). `AI_API_KEY` is reserved in `backend/.env.example` for
-when the assistant module is added.
+`backend/src/modules/ai/` calls the Anthropic API behind a strict system prompt (see
+`ai.system-prompt.ts`) enforcing no-diagnosis/no-prescription boundaries, grounded in a
+curated English knowledge base (`ai.knowledge-base.ts`) covering ANC visits, danger signs,
+nutrition, birth preparation, postnatal/newborn care, mental wellbeing, and hygiene. Set
+`AI_API_KEY` in `backend/.env` to enable real LLM replies; with no key set, the assistant
+falls back to a deterministic keyword-matched reply from the same knowledge base, so the
+feature works end-to-end without any external dependency. Kinyarwanda content is not yet
+translated — see the Phase status table above.
 
 ## Deployment
 

@@ -113,6 +113,11 @@ enum PartnerLinkStatus {
   REVOKED
 }
 
+enum AiMessageRole {
+  USER
+  ASSISTANT
+}
+
 // ---------------------------------------------------------------------------
 // Phase 1 models — fully exercised via API
 // ---------------------------------------------------------------------------
@@ -173,12 +178,13 @@ model MotherProfile {
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
 
-  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  assignedCHW  User?            @relation("MotherAssignedCHW", fields: [assignedCHWId], references: [id])
-  pregnancies  Pregnancy[]
-  appointments Appointment[]
-  followUps    HealthFollowUp[]
-  partnerLinks PartnerLink[]
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignedCHW    User?            @relation("MotherAssignedCHW", fields: [assignedCHWId], references: [id])
+  pregnancies    Pregnancy[]
+  appointments   Appointment[]
+  followUps      HealthFollowUp[]
+  partnerLinks   PartnerLink[]
+  aiConversation AiConversation?
 
   @@index([assignedCHWId])
   @@map("mother_profiles")
@@ -316,6 +322,31 @@ model PartnerLink {
 
   @@index([motherProfileId])
   @@map("partner_links")
+}
+
+model AiConversation {
+  id              String   @id @default(uuid())
+  motherProfileId String   @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  motherProfile MotherProfile @relation(fields: [motherProfileId], references: [id], onDelete: Cascade)
+  messages      AiMessage[]
+
+  @@map("ai_conversations")
+}
+
+model AiMessage {
+  id             String        @id @default(uuid())
+  conversationId String
+  role           AiMessageRole
+  content        String
+  createdAt      DateTime      @default(now())
+
+  conversation AiConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+  @@map("ai_messages")
 }
 
 model AuditLog {

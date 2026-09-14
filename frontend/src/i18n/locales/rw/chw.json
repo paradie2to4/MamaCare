@@ -4,7 +4,7 @@
     "totalAssigned": "Ababyeyi batwite",
     "onTrack": "Bameze neza",
     "followUpNeeded": "Bakeneye gukurikiranwa",
-    "priority": "Gukurikiranwa ku ihutirwa"
+    "priority": "Gukurikiranwa byihutirwa"
   },
   "mothers": {
     "title": "Ababyeyi",
@@ -16,7 +16,7 @@
   "followUps": {
     "title": "Gukurikirana",
     "new": "Gukurikirana gushya",
-    "empty": "Nta gukurikirana kurahari.",
+    "empty": "Nta gukurikirana gurahari.",
     "form": {
       "mother": "Umubyeyi",
       "reason": "Impamvu",
@@ -37,7 +37,7 @@
       "RESOLVED": "Byakemutse",
       "CLOSED": "Byafunzwe"
     },
-    "complete": "Shyira ko byarangiye",
+    "complete": "Shyiraho ko byarangiye",
     "disclaimer": "Iki ni igikoresho cyo gufasha gukurikirana, ntabwo ari uburyo bwo gusuzuma indwara."
   }
 }

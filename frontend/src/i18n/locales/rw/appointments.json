@@ -9,7 +9,7 @@
   "status": {
     "SCHEDULED": "Riteganyijwe",
     "COMPLETED": "Ryarangiye",
-    "MISSED": "Ryatawe",
+    "MISSED": "Ritakozwe",
     "CANCELLED": "Ryahagaritswe",
     "RESCHEDULED": "Ryimuriwe"
   },
@@ -30,8 +30,8 @@
     "submit": "Tegura isuzuma"
   },
   "actions": {
-    "markCompleted": "Shyira ko ryarangiye",
-    "markMissed": "Shyira ko ryatawe",
+    "markCompleted": "Shyiraho ko ryarangiye",
+    "markMissed": "Shyiraho ko ritakozwe",
     "cancel": "Hagarika isuzuma"
   }
 }

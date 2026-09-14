@@ -14,6 +14,7 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
 import { ChwModule } from './modules/chw/chw.module';
 import { FollowUpsModule } from './modules/follow-ups/follow-ups.module';
 import { PartnersModule } from './modules/partners/partners.module';
+import { AiModule } from './modules/ai/ai.module';
 import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
 
 @Module({
@@ -30,6 +31,7 @@ import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
     ChwModule,
     FollowUpsModule,
     PartnersModule,
+    AiModule,
     RabbitMQModule,
   ],
   providers: [
