@@ -21,10 +21,16 @@ export class AuthController {
   ) {}
 
   private setRefreshCookie(res: Response, token: string, expiresAt: Date) {
+    const secure = this.configService.get<string>('COOKIE_SECURE') === 'true';
     res.cookie(REFRESH_COOKIE_NAME, token, {
       httpOnly: true,
-      secure: this.configService.get<string>('COOKIE_SECURE') === 'true',
-      sameSite: 'lax',
+      secure,
+      // Frontend and backend are deployed as separate *.vercel.app subdomains,
+      // which the Public Suffix List treats as different sites — SameSite=Lax
+      // would silently drop this cookie on cross-site XHR/fetch. 'none' (only
+      // valid alongside Secure) is required for the cross-origin deployment;
+      // local dev stays on 'lax' since it isn't served over HTTPS.
+      sameSite: secure ? 'none' : 'lax',
       expires: expiresAt,
       path: '/api/v1/auth',
     });
