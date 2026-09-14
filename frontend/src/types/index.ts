@@ -159,3 +159,13 @@ export interface AppNotification {
   read: boolean;
   createdAt: string;
 }
+
+export type AiMessageRole = 'USER' | 'ASSISTANT';
+
+export interface AiMessage {
+  id: string;
+  conversationId: string;
+  role: AiMessageRole;
+  content: string;
+  createdAt: string;
+}

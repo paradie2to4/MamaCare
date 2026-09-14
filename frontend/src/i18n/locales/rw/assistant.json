@@ -1,0 +1,13 @@
+{
+  "title": "AI Assistant",
+  "disclaimer": "This assistant gives general information only — it does not diagnose or prescribe. For anything urgent, contact your CHW or the nearest health facility.",
+  "empty": "Ask me anything about your pregnancy, appointments, nutrition, or warning signs.",
+  "placeholder": "Type your question...",
+  "send": "Send",
+  "thinking": "Thinking...",
+  "prompts": {
+    "ancSchedule": "How many antenatal visits do I need?",
+    "nutrition": "What should I be eating?",
+    "dangerSigns": "What warning signs should I watch for?"
+  }
+}

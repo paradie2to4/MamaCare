@@ -13,6 +13,7 @@ const MOTHER_ITEMS: NavItem[] = [
   { to: '/app/journey', icon: Route, labelKey: 'nav.journey' },
   { to: '/app/learn', icon: BookOpen, labelKey: 'nav.learn' },
   { to: '/app/appointments', icon: CalendarDays, labelKey: 'nav.appointments' },
+  { to: '/app/assistant', icon: Sparkles, labelKey: 'nav.assistant' },
   { to: '/app/profile', icon: UserCircle, labelKey: 'nav.profile' },
 ];
 
@@ -31,7 +32,6 @@ const PARTNER_ITEMS: NavItem[] = [
 
 export const COMING_SOON_ITEMS: NavItem[] = [
   { to: '/app/officer', icon: BarChart3, labelKey: 'nav.officer' },
-  { to: '/app/assistant', icon: Sparkles, labelKey: 'nav.assistant' },
 ];
 
 export function getNavItemsForRole(role: Role | undefined): NavItem[] {

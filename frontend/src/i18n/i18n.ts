@@ -15,6 +15,7 @@ import partnerEn from './locales/en/partner.json';
 import chwEn from './locales/en/chw.json';
 import followupsEn from './locales/en/followups.json';
 import notificationsEn from './locales/en/notifications.json';
+import assistantEn from './locales/en/assistant.json';
 
 import commonRw from './locales/rw/common.json';
 import authRw from './locales/rw/auth.json';
@@ -29,6 +30,7 @@ import partnerRw from './locales/rw/partner.json';
 import chwRw from './locales/rw/chw.json';
 import followupsRw from './locales/rw/followups.json';
 import notificationsRw from './locales/rw/notifications.json';
+import assistantRw from './locales/rw/assistant.json';
 
 export const defaultNS = 'common';
 
@@ -47,6 +49,7 @@ export const resources = {
     chw: chwEn,
     followups: followupsEn,
     notifications: notificationsEn,
+    assistant: assistantEn,
   },
   rw: {
     common: commonRw,
@@ -62,6 +65,7 @@ export const resources = {
     chw: chwRw,
     followups: followupsRw,
     notifications: notificationsRw,
+    assistant: assistantRw,
   },
 } as const;
 

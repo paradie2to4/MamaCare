@@ -15,6 +15,7 @@ import { ProfilePage } from '../pages/profile/ProfilePage';
 import { CHWMothersPage } from '../pages/chw/CHWMothersPage';
 import { CHWFollowUpsPage } from '../pages/chw/CHWFollowUpsPage';
 import { NotificationsPage } from '../pages/notifications/NotificationsPage';
+import { AssistantPage } from '../pages/assistant/AssistantPage';
 import { ComingSoonPage } from '../pages/comingsoon/ComingSoonPage';
 
 export const router = createBrowserRouter([
@@ -50,6 +51,7 @@ export const router = createBrowserRouter([
               { path: 'learn', element: <EducationListPage /> },
               { path: 'learn/:slug', element: <EducationDetailPage /> },
               { path: 'appointments', element: <AppointmentsPage /> },
+              { path: 'assistant', element: <AssistantPage /> },
             ],
           },
           {
@@ -60,7 +62,6 @@ export const router = createBrowserRouter([
             ],
           },
           { path: 'officer', element: <ComingSoonPage /> },
-          { path: 'assistant', element: <ComingSoonPage /> },
         ],
       },
     ],

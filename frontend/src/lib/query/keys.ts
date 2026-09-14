@@ -44,3 +44,7 @@ export const notificationKeys = {
   list: (unreadOnly?: boolean) => ['notifications', 'list', unreadOnly ?? false] as const,
   unreadCount: ['notifications', 'unread-count'] as const,
 };
+
+export const aiKeys = {
+  messages: ['ai', 'messages'] as const,
+};
