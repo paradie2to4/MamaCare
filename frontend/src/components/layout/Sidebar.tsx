@@ -11,7 +11,10 @@ export function Sidebar() {
 
   return (
     <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-border bg-card px-4 py-6 md:flex">
-      <div className="mb-8 px-2 text-lg font-semibold text-secondary">{t('appName')}</div>
+      <div className="mb-8 flex items-center gap-3 px-2 text-lg font-semibold text-secondary">
+        <img src="/favicon.svg" alt="MamaCare Rwanda Logo" className="h-8 w-8 rounded-lg shadow-sm" />
+        <span>{t('appName')}</span>
+      </div>
       <nav aria-label="Primary" className="flex flex-1 flex-col gap-1">
         {mainItems.map(({ to, end, icon: Icon, labelKey }) => (
           <NavLink

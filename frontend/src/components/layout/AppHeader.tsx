@@ -11,7 +11,10 @@ export function AppHeader() {
 
   return (
     <header className="flex items-center justify-between border-b border-border bg-card px-4 py-3 md:px-6">
-      <span className="text-base font-semibold text-secondary md:hidden">{t('appName')}</span>
+      <div className="flex items-center gap-2 md:hidden">
+        <img src="/favicon.svg" alt="MamaCare Rwanda Logo" className="h-7 w-7 rounded-lg shadow-sm" />
+        <span className="text-base font-semibold text-secondary">{t('appName')}</span>
+      </div>
       <div className="ml-auto flex items-center gap-3">
         <NotificationBell />
         <LanguageSwitcher />
