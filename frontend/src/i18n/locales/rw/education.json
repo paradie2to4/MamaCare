@@ -8,17 +8,17 @@
     "BIRTH_PREPARATION": "Kwitegura kubyara",
     "DANGER_SIGNS": "Ibimenyetso by'akaga",
     "MENTAL_WELLBEING": "Ubuzima bwo mu mutwe",
-    "NEWBORN_CARE": "Kwita ku mwana uvuka",
+    "NEWBORN_CARE": "Kwita ku mwana ukivuka",
     "BREASTFEEDING": "Konsa",
-    "POSTNATAL_CARE": "Kwita nyuma yo kubyara",
+    "POSTNATAL_CARE": "Kwitabwaho nyuma yo kubyara",
     "IMMUNIZATION": "Gukingira umwana",
     "HYGIENE": "Isuku",
     "FAMILY_SUPPORT": "Ubufasha bw'umuryango"
   },
   "allCategories": "Ingingo zose",
-  "readTime": "Isomwa mu minota {{minutes}}",
+  "readTime": "Wasomye mu minota {{minutes}}",
   "reviewed": "Yasuzumwe na {{reviewer}}",
   "updated": "Yavuguruwe {{date}}",
-  "empty": "Nta ngingo iraboneka kuri iyi ngingo.",
-  "backToLearn": "Subira ku Kwiga"
+  "empty": "Nta makuru araboneka kuri iyi ngingo.",
+  "backToLearn": "Subira Kwiga"
 }

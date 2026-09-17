@@ -20,9 +20,9 @@ export const AI_KNOWLEDGE_BASE: KnowledgeTopic[] = [
     title: 'Antenatal care visit schedule',
     keywords: ['appointment', 'anc', 'visit', 'checkup', 'check-up', 'schedule', 'clinic'],
     content:
-      'Rwanda\'s Ministry of Health recommends at least 4 antenatal care (ANC) visits during a pregnancy, ' +
+      "Rwanda's Ministry of Health recommends at least 4 antenatal care (ANC) visits during a pregnancy, " +
       'ideally starting in the first trimester (before week 16). Visits typically check blood pressure, weight, ' +
-      'the baby\'s growth and heartbeat, and screen for danger signs. Missing a scheduled visit should be ' +
+      "the baby's growth and heartbeat, and screen for danger signs. Missing a scheduled visit should be " +
       'rescheduled as soon as possible, not skipped.',
   },
   {
@@ -30,8 +30,22 @@ export const AI_KNOWLEDGE_BASE: KnowledgeTopic[] = [
     category: EducationCategory.DANGER_SIGNS,
     title: 'Warning signs needing urgent care',
     keywords: [
-      'bleeding', 'blood', 'headache', 'pain', 'fever', 'swelling', 'swollen', 'convulsion',
-      'seizure', 'movement', 'kick', 'dizzy', 'vision', 'blurry', 'emergency', 'urgent',
+      'bleeding',
+      'blood',
+      'headache',
+      'pain',
+      'fever',
+      'swelling',
+      'swollen',
+      'convulsion',
+      'seizure',
+      'movement',
+      'kick',
+      'dizzy',
+      'vision',
+      'blurry',
+      'emergency',
+      'urgent',
     ],
     content:
       'Seek care immediately (contact your CHW or go to the nearest health facility) for: heavy vaginal bleeding, ' +
@@ -54,7 +68,17 @@ export const AI_KNOWLEDGE_BASE: KnowledgeTopic[] = [
     id: 'common-discomforts',
     category: EducationCategory.EXERCISE_WELLBEING,
     title: 'Common pregnancy discomforts',
-    keywords: ['nausea', 'vomit', 'tired', 'fatigue', 'backache', 'back', 'cramp', 'heartburn', 'sleep'],
+    keywords: [
+      'nausea',
+      'vomit',
+      'tired',
+      'fatigue',
+      'backache',
+      'back',
+      'cramp',
+      'heartburn',
+      'sleep',
+    ],
     content:
       'Nausea, fatigue, mild backache, and heartburn are common, especially in the first and third trimesters. ' +
       'Rest when possible, eat smaller frequent meals, and gentle movement can help. These are usually not ' +
@@ -75,17 +99,37 @@ export const AI_KNOWLEDGE_BASE: KnowledgeTopic[] = [
     id: 'postnatal-newborn',
     category: EducationCategory.POSTNATAL_CARE,
     title: 'Postnatal and newborn basics',
-    keywords: ['newborn', 'baby', 'postnatal', 'postpartum', 'breastfeed', 'breastfeeding', 'cord', 'jaundice'],
+    keywords: [
+      'newborn',
+      'baby',
+      'postnatal',
+      'postpartum',
+      'breastfeed',
+      'breastfeeding',
+      'cord',
+      'jaundice',
+    ],
     content:
       'After birth, exclusive breastfeeding is recommended for the first 6 months. Keep the umbilical cord stump ' +
-      'clean and dry. Postnatal check-ups monitor both mother and baby\'s recovery. Warning signs in a newborn ' +
+      "clean and dry. Postnatal check-ups monitor both mother and baby's recovery. Warning signs in a newborn " +
       '(difficulty feeding, yellowing skin/eyes, fever, very fast or labored breathing) need prompt clinical care.',
   },
   {
     id: 'mental-wellbeing',
     category: EducationCategory.MENTAL_WELLBEING,
     title: 'Emotional wellbeing',
-    keywords: ['stress', 'anxious', 'anxiety', 'sad', 'depressed', 'depression', 'overwhelmed', 'mood', 'scared', 'afraid'],
+    keywords: [
+      'stress',
+      'anxious',
+      'anxiety',
+      'sad',
+      'depressed',
+      'depression',
+      'overwhelmed',
+      'mood',
+      'scared',
+      'afraid',
+    ],
     content:
       'Mood changes, worry, and stress are common during and after pregnancy. Talking with a partner, family, or ' +
       'your CHW can help. Persistent sadness, loss of interest, or thoughts of self-harm are signs to reach out to ' +

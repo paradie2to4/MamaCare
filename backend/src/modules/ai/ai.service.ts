@@ -76,7 +76,11 @@ export class AiService {
     const replyContent = await this.generateReply(orderedHistory, pregnancyContext, content);
 
     return this.prisma.aiMessage.create({
-      data: { conversationId: conversation.id, role: AiMessageRole.ASSISTANT, content: replyContent },
+      data: {
+        conversationId: conversation.id,
+        role: AiMessageRole.ASSISTANT,
+        content: replyContent,
+      },
     });
   }
 

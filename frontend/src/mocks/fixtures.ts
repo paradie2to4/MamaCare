@@ -486,6 +486,17 @@ export interface MockNotification {
   createdAt: string;
 }
 
+export interface MockAiMessage {
+  id: string;
+  conversationId: string;
+  motherProfileId: string;
+  role: 'USER' | 'ASSISTANT';
+  content: string;
+  createdAt: string;
+}
+
+export const initialAiMessages: MockAiMessage[] = [];
+
 export const initialNotifications: MockNotification[] = [
   {
     id: 'notif-1',

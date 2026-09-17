@@ -3,7 +3,7 @@ generator client {
   // "native" for local dev; the rhel targets are needed for Vercel's serverless
   // (Amazon Linux) runtime — without these, the deployed function can't find a
   // matching query engine binary.
-  binaryTargets = ["native", "rhel-openssl-1.0.x", "rhel-openssl-3.0.x"]
+  binaryTargets = ["native", "linux-musl", "linux-musl-openssl-3.0.x", "rhel-openssl-1.0.x", "rhel-openssl-3.0.x"]
 }
 
 datasource db {

@@ -64,8 +64,15 @@ describe('AiService', () => {
     it('creates a conversation on first message and scopes it to the caller', async () => {
       mothersService.getProfileIdOrThrow.mockResolvedValue('mother-profile-A');
       prisma.aiConversation.findUnique.mockResolvedValue(null);
-      prisma.aiConversation.create.mockResolvedValue({ id: 'conv-new', motherProfileId: 'mother-profile-A' });
-      prisma.aiMessage.create.mockResolvedValue({ id: 'msg-1', role: AiMessageRole.ASSISTANT, content: 'reply' });
+      prisma.aiConversation.create.mockResolvedValue({
+        id: 'conv-new',
+        motherProfileId: 'mother-profile-A',
+      });
+      prisma.aiMessage.create.mockResolvedValue({
+        id: 'msg-1',
+        role: AiMessageRole.ASSISTANT,
+        content: 'reply',
+      });
       prisma.aiMessage.findMany.mockResolvedValue([]);
       pregnanciesService.getCurrentForUser.mockResolvedValue(null);
 
@@ -83,8 +90,15 @@ describe('AiService', () => {
 
     it('reuses an existing conversation instead of creating a new one', async () => {
       mothersService.getProfileIdOrThrow.mockResolvedValue('mother-profile-A');
-      prisma.aiConversation.findUnique.mockResolvedValue({ id: 'conv-existing', motherProfileId: 'mother-profile-A' });
-      prisma.aiMessage.create.mockResolvedValue({ id: 'msg-1', role: AiMessageRole.ASSISTANT, content: 'reply' });
+      prisma.aiConversation.findUnique.mockResolvedValue({
+        id: 'conv-existing',
+        motherProfileId: 'mother-profile-A',
+      });
+      prisma.aiMessage.create.mockResolvedValue({
+        id: 'msg-1',
+        role: AiMessageRole.ASSISTANT,
+        content: 'reply',
+      });
       prisma.aiMessage.findMany.mockResolvedValue([]);
       pregnanciesService.getCurrentForUser.mockResolvedValue(null);
 
@@ -96,14 +110,20 @@ describe('AiService', () => {
     it('falls back to a keyword-matched reply when AI_API_KEY is not configured', async () => {
       configService.get.mockReturnValue(undefined);
       mothersService.getProfileIdOrThrow.mockResolvedValue('mother-profile-A');
-      prisma.aiConversation.findUnique.mockResolvedValue({ id: 'conv-1', motherProfileId: 'mother-profile-A' });
+      prisma.aiConversation.findUnique.mockResolvedValue({
+        id: 'conv-1',
+        motherProfileId: 'mother-profile-A',
+      });
       prisma.aiMessage.findMany.mockResolvedValue([]);
       pregnanciesService.getCurrentForUser.mockResolvedValue(null);
       prisma.aiMessage.create.mockImplementation(({ data }) =>
         Promise.resolve({ id: 'msg-generated', ...data }),
       );
 
-      const result = await service.sendMessage('user-A', 'I have severe bleeding, what should I do?');
+      const result = await service.sendMessage(
+        'user-A',
+        'I have severe bleeding, what should I do?',
+      );
 
       expect(result.role).toBe(AiMessageRole.ASSISTANT);
       expect(result.content).toContain('CHW');
@@ -111,7 +131,10 @@ describe('AiService', () => {
 
     it('includes the current pregnancy week as personalization context, never fabricated', async () => {
       mothersService.getProfileIdOrThrow.mockResolvedValue('mother-profile-A');
-      prisma.aiConversation.findUnique.mockResolvedValue({ id: 'conv-1', motherProfileId: 'mother-profile-A' });
+      prisma.aiConversation.findUnique.mockResolvedValue({
+        id: 'conv-1',
+        motherProfileId: 'mother-profile-A',
+      });
       prisma.aiMessage.findMany.mockResolvedValue([]);
       pregnanciesService.getCurrentForUser.mockResolvedValue({ currentWeek: 24 });
       prisma.aiMessage.create.mockImplementation(({ data }) =>

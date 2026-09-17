@@ -49,6 +49,54 @@ function notFound(message = 'Not found') {
   return HttpResponse.json({ statusCode: 404, message }, { status: 404 });
 }
 
+/**
+ * Small, self-contained keyword-matched reply set for demo mode — mirrors the shape of the
+ * real backend's fallback (`backend/src/modules/ai/ai.fallback.ts`) but is not shared code,
+ * since the frontend demo build has no access to the backend package.
+ */
+const DEMO_AI_TOPICS: { keywords: string[]; content: string }[] = [
+  {
+    keywords: ['appointment', 'anc', 'visit', 'checkup', 'check-up', 'schedule'],
+    content:
+      'Rwanda\'s Ministry of Health recommends at least 4 antenatal care (ANC) visits during a pregnancy. ' +
+      'If you miss one, reschedule it as soon as possible rather than skipping it.',
+  },
+  {
+    keywords: ['bleeding', 'blood', 'headache', 'fever', 'swelling', 'convulsion', 'movement', 'emergency', 'urgent'],
+    content:
+      'That sounds like it could be a warning sign. Please contact your CHW or go to the nearest health facility ' +
+      'immediately — this needs an in-person check, not a chat reply.',
+  },
+  {
+    keywords: ['eat', 'food', 'nutrition', 'diet', 'iron', 'vitamin'],
+    content:
+      'A varied diet with vegetables, fruit, protein, and whole grains supports a healthy pregnancy. Ask your CHW ' +
+      'about iron and folic acid supplements if you have not started them yet.',
+  },
+  {
+    keywords: ['newborn', 'baby', 'breastfeed', 'breastfeeding'],
+    content:
+      'Exclusive breastfeeding is recommended for the first 6 months. Keep the umbilical cord stump clean and dry, ' +
+      'and contact a health worker if your baby has trouble feeding or seems unusually weak.',
+  },
+  {
+    keywords: ['stress', 'anxious', 'anxiety', 'sad', 'overwhelmed', 'mood'],
+    content:
+      'Mood changes and worry are common during pregnancy. Talking to someone you trust can help — and if feelings ' +
+      'of sadness persist, reach out to your CHW.',
+  },
+];
+
+function generateDemoReply(userMessage: string): string {
+  const normalized = userMessage.toLowerCase();
+  const match = DEMO_AI_TOPICS.find((topic) => topic.keywords.some((keyword) => normalized.includes(keyword)));
+  return (
+    match?.content ??
+    'I can help with general information about pregnancy, appointments, nutrition, and warning signs — ask me ' +
+      'about one of those, or contact your CHW for anything urgent.'
+  );
+}
+
 /** Resolves the calling user from the mock Bearer token, or null if unauthenticated. */
 function requireUser(request: Request): MockUser | null {
   const auth = request.headers.get('Authorization');
@@ -557,6 +605,49 @@ export const handlers: HttpHandler[] = [
     if (notification.userId !== user.id) return forbidden();
     notification.read = true;
     return ok(notification);
+  }),
+
+  // --- AI Assistant (demo mode: deterministic keyword-matched replies, no real LLM) ---
+  http.get(`${API}/ai/messages`, ({ request }) => {
+    const user = requireUser(request);
+    if (!user) return unauthorized();
+    const profile = findMotherProfileByUserId(user.id);
+    if (!profile) return ok([]);
+    return ok(
+      db.aiMessages
+        .filter((m) => m.motherProfileId === profile.id)
+        .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()),
+    );
+  }),
+
+  http.post(`${API}/ai/messages`, async ({ request }) => {
+    const user = requireUser(request);
+    if (!user) return unauthorized();
+    const profile = findMotherProfileByUserId(user.id);
+    if (!profile) return forbidden('Complete onboarding first.');
+    const body = (await request.json()) as { content: string };
+
+    const conversationId = `conv-${profile.id}`;
+
+    db.aiMessages.push({
+      id: nextId('ai-msg'),
+      conversationId,
+      motherProfileId: profile.id,
+      role: 'USER',
+      content: body.content,
+      createdAt: new Date().toISOString(),
+    });
+
+    const assistantMessage = {
+      id: nextId('ai-msg'),
+      conversationId,
+      motherProfileId: profile.id,
+      role: 'ASSISTANT' as const,
+      content: generateDemoReply(body.content),
+      createdAt: new Date().toISOString(),
+    };
+    db.aiMessages.push(assistantMessage);
+    return ok(assistantMessage);
   }),
 
   http.patch(`${API}/notifications/read-all`, ({ request }) => {

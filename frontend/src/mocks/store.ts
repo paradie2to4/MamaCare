@@ -1,6 +1,7 @@
 import {
   DEMO_PASSWORD,
   educationArticles,
+  initialAiMessages,
   initialAppointments,
   initialFollowUps,
   initialMotherProfiles,
@@ -9,6 +10,7 @@ import {
   initialPregnancies,
   initialReminders,
   initialUsers,
+  type MockAiMessage,
   type MockAppointment,
   type MockFollowUp,
   type MockMotherProfile,
@@ -34,6 +36,7 @@ export const db = {
   partnerLinks: [...initialPartnerLinks] as MockPartnerLink[],
   followUps: [...initialFollowUps] as MockFollowUp[],
   notifications: [...initialNotifications] as MockNotification[],
+  aiMessages: [...initialAiMessages] as MockAiMessage[],
 };
 
 export function checkPassword(password: string): boolean {
