@@ -27,8 +27,14 @@ export function RegisterPage() {
     try {
       await registerUser(values);
       navigate('/onboarding', { replace: true });
-    } catch {
-      setServerError(t('register.error'));
+    } catch (err: unknown) {
+      const errorMsg = (err as { response?: { data?: { message?: string | string[] } } })?.response?.data?.message;
+      const formattedError = Array.isArray(errorMsg)
+        ? errorMsg.join(', ')
+        : typeof errorMsg === 'string'
+          ? errorMsg
+          : (err as Error)?.message || t('register.error');
+      setServerError(formattedError);
     }
   }
 

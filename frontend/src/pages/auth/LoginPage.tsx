@@ -29,8 +29,14 @@ export function LoginPage() {
       await login(values);
       const redirectTo = (location.state as { from?: { pathname: string } } | undefined)?.from?.pathname ?? '/app';
       navigate(redirectTo, { replace: true });
-    } catch {
-      setServerError(t('login.error'));
+    } catch (err: unknown) {
+      const errorMsg = (err as { response?: { data?: { message?: string | string[] } } })?.response?.data?.message;
+      const formattedError = Array.isArray(errorMsg)
+        ? errorMsg.join(', ')
+        : typeof errorMsg === 'string'
+          ? errorMsg
+          : (err as Error)?.message || t('login.error');
+      setServerError(formattedError);
     }
   }
 

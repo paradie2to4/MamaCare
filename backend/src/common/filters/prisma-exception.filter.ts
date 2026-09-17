@@ -21,6 +21,14 @@ export class PrismaExceptionFilter implements ExceptionFilter {
         status = HttpStatus.NOT_FOUND;
         message = 'The requested record was not found.';
         break;
+      case 'P2021':
+        status = HttpStatus.SERVICE_UNAVAILABLE;
+        message = 'Database tables have not been created yet. Please run `npx prisma migrate deploy` on your database.';
+        break;
+      case 'P1001':
+        status = HttpStatus.SERVICE_UNAVAILABLE;
+        message = 'Cannot connect to database server. Please verify your DATABASE_URL environment variable.';
+        break;
       default:
         break;
     }

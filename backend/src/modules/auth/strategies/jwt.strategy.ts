@@ -7,10 +7,9 @@ import { JwtPayload } from '../../../common/interfaces/jwt-payload.interface';
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(configService: ConfigService) {
-    const secret = configService.get<string>('JWT_ACCESS_SECRET');
-    if (!secret) {
-      throw new Error('JWT_ACCESS_SECRET is not configured.');
-    }
+    const secret =
+      configService.get<string>('JWT_ACCESS_SECRET') ??
+      'mamacare-default-jwt-access-secret-please-set-in-env';
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,

@@ -1,6 +1,8 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000/api/v1';
+const rawApiUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || 'http://localhost:3000/api/v1';
+const cleanApiUrl = rawApiUrl.replace(/\/+$/, '');
+const API_URL = cleanApiUrl.endsWith('/api/v1') ? cleanApiUrl : `${cleanApiUrl}/api/v1`;
 
 let accessToken: string | null = null;
 let onUnauthorized: (() => void) | null = null;

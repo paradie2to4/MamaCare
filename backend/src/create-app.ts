@@ -36,8 +36,30 @@ export async function createNestApp(expressInstance?: Express): Promise<INestApp
   app.useGlobalFilters(new PrismaExceptionFilter(), new HttpExceptionFilter());
   app.useGlobalInterceptors(new LoggingInterceptor(), new TransformResponseInterceptor());
 
+  const rawCorsOrigin = process.env.CORS_ORIGIN;
+  const allowedOrigins = rawCorsOrigin
+    ? rawCorsOrigin.split(',').map((o) => o.trim().replace(/\/+$/, ''))
+    : ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'];
+
   app.enableCors({
-    origin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
+      if (!origin) return callback(null, true);
+
+      const cleanOrigin = origin.replace(/\/+$/, '');
+
+      // Handle wildcard '*' or matching origin
+      if (
+        rawCorsOrigin === '*' ||
+        allowedOrigins.includes('*') ||
+        allowedOrigins.includes(cleanOrigin) ||
+        cleanOrigin.endsWith('.vercel.app')
+      ) {
+        return callback(null, true);
+      }
+
+      callback(null, false);
+    },
     credentials: true,
   });
 
